@@ -3,11 +3,12 @@
 #
 # Name: compare.sh
 #
-# Purpose: Compare and display stats for two (or more) players that are being tracked on https://pubgtracker.com.
+# Purpose: Compare and display stats for two (or more) players that are being
+# tracked on https://pubgtracker.com.
 #
 
 #
-# Source the config
+# Source the config for API key
 #
 source config
 
@@ -27,10 +28,9 @@ do
   --header "${pubg_api_key}" | jq '.' > data.json
 
   # Process with jq until we have a slimmed down JSON object to work with
-  jq '.Stats[] | select(.Region  == "agg")' data > user-SexyPIG-filter2.json
-
-  
-
+  jq '.Stats[] | select(.Region == "agg")' data.json > filtered.json
+  jq '. | select(.Season == "2017-pre1")' data.json > filtered.json
+  jq '. | select(.Match == "solo")' data.json > filtered.json
 done < players
 
 
