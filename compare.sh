@@ -8,7 +8,7 @@
 #
 # Some tips:
 # - Create a local shell variable for your API key when you need to run this script.
-# - echo pubg-api-key="[APIKEY]"
+# - pubg-api-key="[APIKEY]"
 #
 
 
