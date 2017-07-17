@@ -7,6 +7,11 @@
 #
 
 #
+# Source the config
+#
+source config
+
+#
 # Print column headers
 #
 echo "Player Name  K/D Ratio  Skill Rating  Win %"
@@ -15,10 +20,11 @@ echo "-----------  ---------  ------------  -----"
 #
 # Main loop
 #
-while read player
+while read p
 do
-  curl -x GET "https://pubgtracker.com/api/profile/pc/$player" \
-  --header $pubg_api_key > data
+  curl -s --request GET "https://pubgtracker.com/api/profile/pc/$p" \
+  --header "${pubg_api_key}" > data
+
 done < players
 
 
