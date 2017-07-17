@@ -21,9 +21,15 @@ echo "-----------  ---------  ------------  -----"
 # Main loop
 #
 while read p
-do
+do	
+  # cURL and save the output
   curl -s --request GET "https://pubgtracker.com/api/profile/pc/$p" \
-  --header "${pubg_api_key}" > data
+  --header "${pubg_api_key}" | jq '.' > data.json
+
+  # Process with jq until we have a slimmed down JSON object to work with
+  jq '.Stats[] | select(.Region  == "agg")' data > user-SexyPIG-filter2.json
+
+  
 
 done < players
 
