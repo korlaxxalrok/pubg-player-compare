@@ -29,8 +29,8 @@ do
 
   # Process with jq until we have a slimmed down JSON object to work with
   jq '.Stats[] | select(.Region == "agg")' data.json > filtered1.json
-  jq '.[] | select(.Season == "2017-pre2")' filtered1.json > filtered2.json
-  jq '.[] | select(.Match == "solo")' filtered2.json > filtered3.json
+  jq '. | select(.Season == "2017-pre2")' filtered1.json > filtered2.json
+  jq '. | select(.Match == "solo")' filtered2.json > filtered3.json
 done < players
 
 
