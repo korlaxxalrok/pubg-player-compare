@@ -1,6 +1,6 @@
 # Config and script-specific files #
 ####################################
-filtered.json
+filtered*.json
 players
 data.json
 config

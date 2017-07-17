@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -x
 
 #
 # Name: compare.sh
@@ -29,8 +29,8 @@ do
 
   # Process with jq until we have a slimmed down JSON object to work with
   jq '.Stats[] | select(.Region == "agg")' data.json > filtered.json
-  jq '. | select(.Season == "2017-pre2")' data.json > filtered.json
-  jq '. | select(.Match == "solo")' data.json > filtered.json
+  jq '.[] | select(.Season == "2017-pre2")' data.json > filtered.json
+  jq '.[] | select(.Match == "solo")' data.json > filtered.json
 done < players
 
 
