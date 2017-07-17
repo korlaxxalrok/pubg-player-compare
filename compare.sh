@@ -7,8 +7,8 @@
 # The gears that turn: Bash + jq.
 #
 # Some tips:
-# - Create a local shell variable for your API key when you need to run this script.
-# - pubg-api-key="[APIKEY]"
+# - Create a local variable for your API key when you need to run this script.
+# - pubg_api_key="[APIKEY]"
 #
 
 
