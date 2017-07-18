@@ -5,7 +5,7 @@ A simple script to compare some basic stats of players being tracked on [PUBG Tr
 #### Goal:
 * Select two users with stats on [PUBG Tracker](https://pubgtracker.com).
 * Make (throttled) API calls to get their stats.
-* Compare and display the selected stats.
+* Compare and display the selected stats
 
 #### Reguirements:
 * A *nix system with a Bash-like shell.

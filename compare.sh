@@ -40,14 +40,7 @@ do
   # Output data
   printf "%-20s %-20s %-20s %-20s\n" "${p}" "${kd_ratio}" "${rating}" "${win_percentage}"
 
-
+  # Give the API a little break so we don't annoy the hosts 
   sleep 2
 
 done < players
-# TODO - Create examples dir for config and players files (necessary?)
-# TODO - Spruce up repo
-# TODO - Call 'er' Dunn
-
-
-
-
