@@ -10,7 +10,7 @@
 #
 # Source the config for API key
 #
-source config
+. config
 
 #
 # Print column headers
@@ -28,21 +28,21 @@ do
   --header "${pubg_api_key}" | jq '.' > data.json
 
   # Process with jq until we have a slimmed down JSON object to work with
-  jq '.Stats[] | select(.Region == "agg")' data.json > filtered1.json
-  jq '. | select(.Season == "2017-pre2")' filtered1.json > filtered2.json
-  jq '. | select(.Match == "solo")' filtered2.json > filtered_final.json
+  jq '.Stats[] | select(.Region == "agg")' data.json > filtered_1.json
+  jq '. | select(.Season == "2017-pre2")' filtered_1.json > filtered_2.json
+  jq '. | select(.Match == "solo")' filtered_2.json > filtered_final.json
 
   # Filter for statistics and assign to variables
-  kd_ratio=1.7
-  #$(jq -r '.Stats[0].displayValue' filtered_final.json)
-  rating=1280
-  #$(jq -r '.Stats[9].displayValue' filtered_final.json)
-  win_percentage=2.96
-  #$(jq -r '.Stats[1].displayValue' filtered_final.json)
+  kd_ratio=$(jq -r '.Stats[0].displayValue' filtered_final.json)
+  rating=$(jq -r '.Stats[9].displayValue' filtered_final.json)
+  win_percentage=$(jq -r '.Stats[1].displayValue' filtered_final.json)
 
   # Output data
   # test
-  echo "${p} ${kd_ratio} ${rating} ${win_percentage}"
+  printf "%-15s %-15s %-15s %-15s\n" "${p}" "${kd_ratio}" "${rating}" "${win_percentage}"
+
+
+  sleep 2
 
 done < players
 # TODO - Create examples dir for config and players files (necessary?)
