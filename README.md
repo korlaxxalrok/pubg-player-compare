@@ -15,11 +15,11 @@ A simple script to compare some basic stats of players being tracked on [PUBG Tr
 #### Usage:
 * Clone the repo locally: ```$> https://github.com/korlaxxalrok/pubg-player-compare.git```
 * Create and populate two files in the root of the repository that are referenced by the script. You'll need to replace this information with your own API key and player names. You can also directly edit the files, of course.
-  * ```$> touch config && touch players```
-  * ```$> echo pubg_api_key='"{your_api_key_goes_here}"' > config```
-  * ```$> echo {player1} >> players; echo {player2} >> players``` 
+  * ```touch config && touch players```
+  * ```echo pubg_api_key='"{your_api_key_goes_here}"' > config```
+  * ```echo {player1} >> players; echo {player2} >> players``` 
 * Make the script executable: ```$> chmod +x compare.sh```
-* Run it! ```$> ./compare.sh```
+* Run it! ```./compare.sh```
 
 If all goes well you may see output like this (player names are hidden).
 ```
