@@ -40,3 +40,6 @@ player2              2.17                 1,590.71             5.3%
 
 #### Take away:
 * `jq` is a very nice tool that allows for doing some nify things with JSON from the (relatively) comfy world of Bash. I looked at several resources when doing research, and they were typically good, but I found this tutorial to be really clear and useful: [Reshaping JSON with jq](http://programminghistorian.org/lessons/json-and-jq) There are other nuggets to be found here. Worth a look.
+
+#### MEGABONUS
+If you actually find this really specific script useful, you can add more players to the `players` file. This script will pretty happily churn though that and output these stats for each user. It'll take a while as there is a 2 second sleep step in the loop, but hey, go for it :)
