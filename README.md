@@ -18,7 +18,7 @@ A simple script to compare some basic stats of players being tracked on [PUBG Tr
   * ```touch config && touch players```
   * ```echo pubg_api_key='"{your_api_key_goes_here}"' > config```
   * ```echo {player1} >> players; echo {player2} >> players``` 
-* Make the script executable: ```$> chmod +x compare.sh```
+* Make the script executable: ```chmod +x compare.sh```
 * Run it! ```./compare.sh```
 
 If all goes well you may see output like this (player names are hidden).
