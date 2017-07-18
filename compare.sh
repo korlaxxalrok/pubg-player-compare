@@ -15,14 +15,14 @@
 #
 # Print column headers
 #
-echo "Player Name  K/D Ratio  Skill Rating  Win %"
-echo "-----------  ---------  ------------  -----"
+printf "%-20s %-20s %-20s %-20s\n" "Player Name" "K/D Ratio" "Skill Rating" "Win %"
+printf "%-20s %-20s %-20s %-20s\n" "-----------" "---------" "------------" "-----"
 
 #
 # Main loop
 #
 while read p
-do	
+do  
   # cURL and save the output
   curl -s "https://pubgtracker.com/api/profile/pc/$p" \
   --header "${pubg_api_key}" | jq '.' > data.json
@@ -38,8 +38,7 @@ do
   win_percentage=$(jq -r '.Stats[1].displayValue' filtered_final.json)
 
   # Output data
-  # test
-  printf "%-15s %-15s %-15s %-15s\n" "${p}" "${kd_ratio}" "${rating}" "${win_percentage}"
+  printf "%-20s %-20s %-20s %-20s\n" "${p}" "${kd_ratio}" "${rating}" "${win_percentage}"
 
 
   sleep 2
