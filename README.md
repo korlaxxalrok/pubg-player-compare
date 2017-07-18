@@ -1,11 +1,11 @@
 # pubg-player-compare
 
-A simple script to compare some basic stats of players being tracked on [pubgtracker.com](https://pubgtracker.com). Also an experiment to get to know [jq](https://stedolan.github.io/jq/) a little bit better.
+A simple script to compare some basic stats of players being tracked on [PUBG Tracker](https://pubgtracker.com). Also an experiment to get to know [jq](https://stedolan.github.io/jq/) a little bit better.
 
 #### Goal:
-* Select two users with stats on https://pubgtracker.com
-* Make (throttled) API calls to get their stats
-* Compare and display the selected stats
+* Select two users with stats on [PUBG Tracker](https://pubgtracker.com).
+* Make (throttled) API calls to get their stats.
+* Compare and display the selected stats.
 
 #### Reguirements:
 * A *nix system with a Bash-like shell.
