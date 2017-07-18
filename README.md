@@ -14,8 +14,10 @@ A simple script to compare some basic stats of players being tracked on [pubgtra
 
 #### Usage:
 * Clone the repo locally: ```$> https://github.com/korlaxxalrok/pubg-player-compare.git```
-* Copy the example `config` and `players` files from the `/examples` directory to the root of the repository directory.
-* Edit the files, adding your API key and the players you want to compare.
+* Create and populate two files in the root of the repository that are referenced by the script. You'll need to replace this information with your own API key and player names. You can also directly edit the files, of course.
+  * ```$> touch config && touch players```
+  * ```$> echo pubg_api_key="{your_api_key_goes_here}" > config```
+  * ```$> echo {player1} >> players; echo {player2} >> players``` 
 * Make the script executable: ```$> chmod +x compare.sh```
 * Run it! ```$> ./compare.sh```
 
@@ -28,14 +30,13 @@ player2              2.17                 1,590.71             5.3%
 ```
 
 #### How does this work?
-1. Make a call to the API for a user.
-2. Process the unruly JSON that is returned with `jq` and save it in a file.
-3. Refine the JSON so that we end up with stats from region "agg", season "2017-pre2", and match "solo".
+1. Makes a call to the PUBG Tracker API for a user, pipes the unruly JSON that is returned with `jq`, and saves it to a file.
+3. Refines the JSON so that we end up with stats from region "agg", season "2017-pre2", and match "solo".
 * This is achieved by filtering the large (4K+ lines) JSON object that is returned in the request. To work around some issues I had doing this inline with `jq`, I decided to apply the filter operations in sequence, writing a new filter file to disk each time. The last file becomes the refined JSON that is then used to extract the key values from.
-4. Extract keys from know indexes in the refined JSON object with `jq`.
-5. Assign these values to variables.
-6. Output to stdout with some basic formatting.
-7. Repeat for the next user in the `players` file.
+4. Extracts (with `jq`) the keys from known (and hopefully consistent) indexes in the refined JSON object.
+5. Assigns these values to variables.
+6. Outputs the results to stdout with some basic formatting.
+7. Repeats for the next user in the `players` file.
 
 #### Take away:
 * `jq` is a very nice tool that allows for doing some nify things with JSON from the (relatively) comfy world of Bash. I looked at several resources when doing research, and they were typically good, but I found this tutorial to be really clear and useful: [Reshaping JSON with jq](http://programminghistorian.org/lessons/json-and-jq) There are other nuggets to be found here. Worth a look.
