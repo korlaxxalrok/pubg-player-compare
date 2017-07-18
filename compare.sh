@@ -24,7 +24,7 @@ echo "-----------  ---------  ------------  -----"
 while read p
 do	
   # cURL and save the output
-  curl -s --request GET "https://pubgtracker.com/api/profile/pc/$p" \
+  curl -s "https://pubgtracker.com/api/profile/pc/$p" \
   --header "${pubg_api_key}" | jq '.' > data.json
 
   # Process with jq until we have a slimmed down JSON object to work with
@@ -33,9 +33,12 @@ do
   jq '. | select(.Match == "solo")' filtered2.json > filtered_final.json
 
   # Filter for statistics and assign to variables
-  kd_ratio=$(jq -r '.Stats[0].displayValue' filtered_final.json)
-  rating=$(jq -r '.Stats[9].displayValue' filtered_final.json)
-  win_percentage=$(jq -r '.Stats[1].displayValue' filtered_final.json)
+  kd_ratio=1.7
+  #$(jq -r '.Stats[0].displayValue' filtered_final.json)
+  rating=1280
+  #$(jq -r '.Stats[9].displayValue' filtered_final.json)
+  win_percentage=2.96
+  #$(jq -r '.Stats[1].displayValue' filtered_final.json)
 
   # Output data
   # test
