@@ -30,11 +30,11 @@ player2              2.17                 1,590.71             5.3%
 ```
 
 #### How does this work?
-1. Makes a call to the PUBG Tracker API for a user, pipes the unruly JSON that is returned with `jq`, and saves it to a file.
+1. Makes a call to the PUBG Tracker API for a user, processes the unruly JSON that is returned with `jq`, and saves it to a file.
 3. Refines the JSON so that we end up with stats from region "agg", season "2017-pre2", and match "solo".
-* This is achieved by filtering the large (4K+ lines) JSON object that is returned in the request. To work around some issues I had doing this inline with `jq`, I decided to apply the filter operations in sequence, writing a new filter file to disk each time. The last file becomes the refined JSON that is then used to extract the key values from.
+* This is achieved by filtering the large (4K+ lines) JSON object that is returned in the request that we saved to a file. To work around some issues I had doing this inline with `jq`, I decided to apply the filter operations in sequence, writing a new filter file to disk each time. The last file becomes the refined JSON that is then used to extract the key values from.
 4. Extracts (with `jq`) the keys from known (and hopefully consistent) indexes in the refined JSON object.
-5. Assigns these values to variables.
+5. Assigns these key values to variables.
 6. Outputs the results to stdout with some basic formatting.
 7. Repeats for the next user in the `players` file.
 
