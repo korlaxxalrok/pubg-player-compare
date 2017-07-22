@@ -9,7 +9,7 @@ A simple script to compare some basic stats of players being tracked on [PUBG Tr
 
 #### Reguirements:
 * Bash
-* An API key from [PUBG Tracker](https://pubgtracker.com/site-api) You will need to sign up to obtain the key.
+* An API key from [PUBG Tracker](https://pubgtracker.com/site-api). You will need to sign up to obtain the key.
 * Two player nicknames from the pubg tracker. You can grab some easily from the leaderboard section.
 
 #### Usage:
