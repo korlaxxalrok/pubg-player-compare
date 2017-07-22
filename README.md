@@ -21,7 +21,7 @@ A simple script to compare some basic stats of players being tracked on [PUBG Tr
 * Make the script executable: ```chmod u+x compare.sh```
 * Run it! ```./compare.sh```
 
-If all goes well you may see output like this (player names are hidden).
+If all goes well you may see output like this (player names are hidden in this example).
 ```
 Player Name          K/D Ratio            Skill Rating         Win %
 -----------          ---------            ------------         -----
